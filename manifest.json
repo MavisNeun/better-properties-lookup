@@ -1,7 +1,7 @@
 {
   "id": "better-properties-lookup",
   "name": "Better Properties Lookup",
-  "version": "1.0.1",
+  "version": "1.4.0",
   "minAppVersion": "1.0.0",
   "description": "A better way to view and interact with file properties with a nested layout.",
   "author": "MavisNeun",
