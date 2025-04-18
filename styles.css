@@ -1,0 +1,383 @@
+/* Better Properties Lookup Plugin Styles */
+
+.better-properties-container {
+    padding: 8px;
+    overflow-y: auto;
+    height: 100%;
+}
+
+/* Add padding to the top when the toolbar is fixed */
+.better-properties-container.with-fixed-toolbar {
+    padding-top: 60px; /* Adjust based on the toolbar height plus margins */
+}
+
+/* Toolbar styles */
+.better-properties-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
+/* Fixed toolbar styles */
+.better-properties-toolbar.toolbar-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: var(--background-primary);
+    padding: 8px 16px;
+    margin-bottom: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 32px); /* Account for padding */
+}
+
+/* Fixed search styles */
+.search-container.search-fixed {
+    position: fixed;
+    top: 45px; /* Positioned below the fixed toolbar */
+    left: 0;
+    z-index: 99;
+    background-color: var(--background-primary);
+    padding: 8px 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 32px); /* Account for padding */
+}
+
+.toolbar-section {
+    display: flex;
+    align-items: center;
+}
+
+.left-section {
+    margin-right: auto;
+}
+
+.right-section {
+    margin-left: auto;
+}
+
+.toolbar-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+    color: var(--text-muted);
+    background-color: var(--background-secondary-alt);
+    font-size: 0.9em;
+}
+
+/* Sort dropdown styles */
+.sort-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.sort-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    min-width: 200px;
+    background-color: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 4px 0;
+    margin-top: 4px;
+}
+
+.sort-option {
+    padding: 6px 12px;
+    cursor: pointer;
+    color: var(--text-normal);
+    font-size: 0.9em;
+}
+
+.sort-option:hover {
+    background-color: var(--background-modifier-hover);
+}
+
+/* Loading animation for reindex button */
+.toolbar-button.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.toolbar-button.loading svg {
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Style text-based icons */
+.toolbar-button.icon-text {
+    font-size: 0.7em;
+    font-weight: bold;
+    width: 32px;
+    height: 28px;
+    letter-spacing: -0.5px;
+}
+
+.toolbar-button:hover {
+    background-color: var(--background-modifier-hover);
+    color: var(--text-normal);
+}
+
+.toolbar-button.active {
+    background-color: var(--background-modifier-hover);
+    color: var(--text-accent);
+}
+
+.toolbar-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+.sort-options {
+    border-right: 1px solid var(--background-modifier-border);
+    padding-right: 8px;
+}
+
+/* Search styles */
+.search-container {
+    margin-bottom: 8px;
+    margin-top: 8px;
+    width: 100%;
+    padding: 0 8px;
+}
+
+/* Search input wrapper for positioning the clear button */
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.better-properties-search {
+    width: 100%;
+    padding: 6px 30px 6px 8px; /* Added right padding for the clear button */
+    border-radius: 4px;
+    border: 1px solid var(--background-modifier-border);
+    background-color: var(--background-primary);
+    font-size: 14px;
+}
+
+/* Clear button in search field */
+.search-clear-button {
+    position: absolute;
+    right: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--text-muted);
+    background-color: var(--background-secondary-alt);
+    transition: all 0.2s ease;
+}
+
+.search-clear-button:hover {
+    background-color: var(--background-modifier-hover);
+    color: var(--text-normal);
+}
+
+.search-clear-button svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Property section styles */
+.property-section {
+    margin-bottom: 6px;
+}
+
+.fold-header {
+    font-weight: normal;
+    cursor: pointer;
+    padding: 4px;
+    background-color: var(--background-secondary);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    border: 1px solid rgba(104, 104, 104, 0.1); /* var(--background-modifier-border); */
+
+}
+
+.fold-header:hover {
+    background-color: var(--background-modifier-hover);
+}
+
+/* Standard styling for fold toggles without extra padding */
+.fold-toggle {
+    margin-right: 0px;
+    margin-top: 6px;
+    color: var(--text-muted);
+    min-width: 12px;
+    text-align: center;
+}
+
+/* Property type icon styling */
+.property-type-icon {
+    margin-right: 6px;
+    color: var(--text-muted);
+    font-size: 0.9em;
+}
+
+.property-text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.distinct-values {
+    font-size: 0.75em;
+    font-weight: normal;
+    color: var(--text-muted);
+    margin-left: 8px;
+}
+
+.fold-content {
+    margin-left: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.property-children {
+    padding-left: 8px;
+    margin-top: 8px;
+    border-left: 1px solid var(--background-modifier-border);
+}
+
+/* Standard spacing for property nodes */
+.property-node {
+    margin-bottom: 8px;
+}
+
+/* ! Make node headers better clickable by giving them a more distinct appearance */
+.node-header {
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.node-header:hover {
+    background-color: var(--background-modifier-hover);
+}
+
+.node-label {
+    flex: 1;
+}
+
+.node-content {
+    margin-left: 16px;
+    padding-left: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-left: 1px solid var(--background-modifier-border);
+}
+
+.node-children {
+    margin-top: 8px;
+}
+
+/*  Table styles */
+.values-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+}
+
+.values-table th {
+    text-align: left;
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--background-modifier-border);
+    color: var(--text-muted);
+}
+
+.values-table td {
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--background-modifier-border-hover);
+}
+
+.values-table tr:hover {
+    background-color: var(--background-secondary);
+    cursor: default;
+}
+
+.value-link {
+    color: var(--text-accent);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.value-link:hover {
+    text-decoration: underline;
+}
+
+/* Context menu styles */
+.value-context-menu {
+    position: absolute;
+    background-color: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 150px;
+}
+
+.context-menu-item {
+    padding: 6px 12px;
+    cursor: pointer;
+    color: var(--text-normal);
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+}
+
+.context-menu-item:hover {
+    background-color: var(--background-modifier-hover);
+}
+
+.context-menu-icon {
+    margin-right: 8px;
+    color: var(--text-muted);
+}
+
+/* Divider for context menu */
+.context-menu-divider {
+    height: 1px;
+    background-color: var(--background-modifier-border);
+    margin: 4px 0;
+}
+
+/* Header for context menu sections */
+.context-menu-header {
+    padding: 4px 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: var(--text-muted);
+    background-color: var(--background-secondary-alt);
+    border-top: 1px solid var(--background-modifier-border);
+    border-bottom: 1px solid var(--background-modifier-border);
+} 

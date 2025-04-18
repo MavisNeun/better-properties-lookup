@@ -1,0 +1,53 @@
+# Dependency directories
+node_modules/
+
+# Production build files
+*.js.map
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# vscode
+.vscode 
+
+# Intellij
+*.iml
+.idea
+
+# obsidian
+data.json
+
+# Debug Styles
+debug-styles.css
+debug-view.html
+
+# md files
+*.md
+!README.md
