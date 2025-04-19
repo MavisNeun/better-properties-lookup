@@ -821,4 +821,4 @@ export class BetterPropertiesLookupView extends ItemView {
             this.searchContainer.style.display = this.settings.enableSearch ? 'block' : 'none';
         }
     }
-} 
+}

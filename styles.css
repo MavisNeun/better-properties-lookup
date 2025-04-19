@@ -10,7 +10,13 @@
 .better-properties-container.with-fixed-toolbar {
     padding-top: 60px; /* Adjust based on the toolbar height plus margins */
 }
+.hidden {
+    display: none !important;
+}
 
+.visible {
+    display: block !important;
+}
 /* Toolbar styles */
 .better-properties-toolbar {
     display: flex;
@@ -47,19 +53,7 @@
     width: calc(100% - 32px); /* Account for padding */
 }
 
-.toolbar-section {
-    display: flex;
-    align-items: center;
-}
-
-.left-section {
-    margin-right: auto;
-}
-
-.right-section {
-    margin-left: auto;
-}
-
+/* Toolbar button styles */
 .toolbar-button {
     display: flex;
     align-items: center;
@@ -85,49 +79,34 @@
     top: 100%;
     left: 0;
     z-index: 1000;
-    min-width: 200px;
     background-color: var(--background-primary);
     border: 1px solid var(--background-modifier-border);
     border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    padding: 4px 0;
-    margin-top: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    display: none;
 }
 
 .sort-option {
     padding: 6px 12px;
     cursor: pointer;
-    color: var(--text-normal);
-    font-size: 0.9em;
 }
 
 .sort-option:hover {
-    background-color: var(--background-modifier-hover);
+    background-color: var(--background-secondary);
 }
 
-/* Loading animation for reindex button */
-.toolbar-button.loading {
-    position: relative;
-    pointer-events: none;
-    opacity: 0.7;
+.toolbar-section {
+    display: flex;
+    align-items: center;
 }
 
-.toolbar-button.loading svg {
-    animation: spin 1.5s linear infinite;
+.left-section {
+    flex: 1;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Style text-based icons */
-.toolbar-button.icon-text {
-    font-size: 0.7em;
-    font-weight: bold;
-    width: 32px;
-    height: 28px;
-    letter-spacing: -0.5px;
+.right-section {
+    justify-content: flex-end;
 }
 
 .toolbar-button:hover {
@@ -136,8 +115,19 @@
 }
 
 .toolbar-button.active {
-    background-color: var(--background-modifier-hover);
-    color: var(--text-accent);
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+.toolbar-button.loading {
+    animation: spin 1s linear infinite;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .toolbar-button svg {
@@ -163,22 +153,20 @@
     position: relative;
     display: flex;
     align-items: center;
-    width: 100%;
 }
 
 .better-properties-search {
     width: 100%;
-    padding: 6px 30px 6px 8px; /* Added right padding for the clear button */
-    border-radius: 4px;
+    padding: 6px 30px 6px 8px;
     border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
     background-color: var(--background-primary);
-    font-size: 14px;
+    color: var(--text-normal);
 }
 
-/* Clear button in search field */
 .search-clear-button {
     position: absolute;
-    right: 6px;
+    right: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -187,8 +175,6 @@
     border-radius: 50%;
     cursor: pointer;
     color: var(--text-muted);
-    background-color: var(--background-secondary-alt);
-    transition: all 0.2s ease;
 }
 
 .search-clear-button:hover {
@@ -214,69 +200,53 @@
     border-radius: 4px;
     display: flex;
     align-items: center;
-    user-select: none;
-    border: 1px solid rgba(104, 104, 104, 0.1); /* var(--background-modifier-border); */
-
 }
 
 .fold-header:hover {
     background-color: var(--background-modifier-hover);
 }
 
-/* Standard styling for fold toggles without extra padding */
 .fold-toggle {
-    margin-right: 0px;
-    margin-top: 6px;
-    color: var(--text-muted);
-    min-width: 12px;
-    text-align: center;
-}
-
-/* Property type icon styling */
-.property-type-icon {
-    margin-right: 6px;
-    color: var(--text-muted);
-    font-size: 0.9em;
+    margin-right: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
 }
 
 .property-text {
     flex: 1;
-    display: flex;
-    align-items: center;
 }
 
 .distinct-values {
-    font-size: 0.75em;
-    font-weight: normal;
+    font-size: 0.85em;
     color: var(--text-muted);
     margin-left: 8px;
 }
 
 .fold-content {
-    margin-left: 16px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-}
-
-.property-children {
-    padding-left: 8px;
-    margin-top: 8px;
+    margin-left: 8px;
+    padding: 4px 0;
     border-left: 1px solid var(--background-modifier-border);
 }
 
-/* Standard spacing for property nodes */
-.property-node {
-    margin-bottom: 8px;
+.property-children {
+    margin-top: 8px;
+    padding-left: 8px;
 }
 
-/* ! Make node headers better clickable by giving them a more distinct appearance */
+/* Node styles */
+.property-node {
+    margin-bottom: 4px;
+}
+
 .node-header {
     display: flex;
     align-items: center;
-    padding: 6px;
     cursor: pointer;
+    padding: 2px 4px;
     border-radius: 4px;
-    width: 100%;
 }
 
 .node-header:hover {
@@ -313,16 +283,12 @@
     padding: 4px 8px;
     border-bottom: 1px solid var(--background-modifier-border);
     color: var(--text-muted);
+    font-weight: normal;
 }
 
 .values-table td {
     padding: 4px 8px;
-    border-bottom: 1px solid var(--background-modifier-border-hover);
-}
-
-.values-table tr:hover {
-    background-color: var(--background-secondary);
-    cursor: default;
+    border-bottom: 1px solid var(--background-modifier-border-subtle);
 }
 
 .value-link {
@@ -347,37 +313,31 @@
 }
 
 .context-menu-item {
-    padding: 6px 12px;
-    cursor: pointer;
-    color: var(--text-normal);
-    font-size: 0.9em;
     display: flex;
     align-items: center;
+    padding: 6px 12px;
+    cursor: pointer;
 }
 
 .context-menu-item:hover {
-    background-color: var(--background-modifier-hover);
+    background-color: var(--background-secondary);
 }
 
 .context-menu-icon {
     margin-right: 8px;
-    color: var(--text-muted);
+    display: flex;
+    align-items: center;
 }
 
-/* Divider for context menu */
 .context-menu-divider {
     height: 1px;
     background-color: var(--background-modifier-border);
     margin: 4px 0;
 }
 
-/* Header for context menu sections */
 .context-menu-header {
-    padding: 4px 12px;
-    font-size: 0.8em;
-    font-weight: bold;
+    padding: 6px 12px;
+    font-size: 0.85em;
     color: var(--text-muted);
-    background-color: var(--background-secondary-alt);
-    border-top: 1px solid var(--background-modifier-border);
-    border-bottom: 1px solid var(--background-modifier-border);
-} 
+    font-weight: bold;
+}

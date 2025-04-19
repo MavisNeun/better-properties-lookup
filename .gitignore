@@ -1,3 +1,16 @@
+# Ignore compiled output
+main.js
+main.js.map
+
+# Ignore node_modules
+node_modules/
+
+# Ignore other common files
+.DS_Store
+.idea/
+.vscode/
+*.log
+
 # Dependency directories
 node_modules/
 

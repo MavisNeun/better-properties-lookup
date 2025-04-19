@@ -65,7 +65,7 @@ export default class BetterPropertiesLookupPlugin extends Plugin {
 
 	async onunload() {
 		console.log('Unloading Better Properties Lookup plugin');
-		this.app.workspace.detachLeavesOfType(VIEW_TYPE_BETTER_PROPERTIES);
+
 	}
 
 	async loadSettings() {
@@ -119,4 +119,4 @@ export default class BetterPropertiesLookupPlugin extends Plugin {
 			new Notice("Could not create sidebar view. Please try again.");
 		}
 	}
-} 
+}
